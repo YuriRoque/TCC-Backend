@@ -1,0 +1,34 @@
+# To run it "docker-compose up -d" if you are running in Docker Desktop
+# To make any changes in docker container: "docker-compose build"
+version: '3.9'
+
+services:
+  db:
+    image: mongo:latest
+    container_name: db_container
+    restart: always
+    volumes:
+      - mongo_db:/data/db
+    # The "ports" in "db" service provides access to local environment if needed
+    ports:
+      - ${DB_PORT}:27017
+  
+  api:
+    container_name: nodejs_api
+    # The "build" search for the "Dockerfile" in the local files to build the service
+    build: .
+    ports:
+      - 4000:4000
+    volumes:
+      - .:/usr/src/app
+    environment:
+      PORT: ${SERVER_PORT}
+      MONGODB_URL: ${MONGODB_URL}
+      DB_NAME: ${DB_NAME}
+      NAME: ${NAME}
+    depends_on:
+      - db
+
+# The volume is created for data persistance into the docker database
+volumes:
+  mongo_db: {}

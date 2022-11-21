@@ -1,0 +1,40 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Um album inteligente online",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
+  },
+  "repository": "git+https://github.com/edwilsonferreira/album_inteligente_fotos.git",
+  "keywords": [
+    "smart_album",
+    "album_inteligente",
+    "pictures",
+    "object_detection"
+  ],
+  "author": "Yuri Roque Benvenutti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edwilsonferreira/album_inteligente_fotos/issues"
+  },
+  "homepage": "https://github.com/edwilsonferreira/album_inteligente_fotos#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "@google-cloud/translate": "^6.3.1",
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "googleapis": "^100.0.0",
+    "helmet": "^5.0.2",
+    "mongoose": "^6.2.6",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.4"
+  }
+}
